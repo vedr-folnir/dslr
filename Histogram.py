@@ -9,9 +9,10 @@ def is_number(s):
         s = s[1:]  # enleve le moins
     return s.replace(".", "", 1).isdigit() and s.count(".") <= 1
 
+
 if (len(sys.argv) != 2):
     print("error wrong number of arguments")
-
+    
 with open(sys.argv[1], newline='') as csvfile:
     spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
     names = []
@@ -64,29 +65,25 @@ with open(sys.argv[1], newline='') as csvfile:
             means[i][0] = means[i][0]/means[i][1]
             x.append(means[i][0])
 
-
-    min_max=[[float('inf'),float('-inf')] for _ in range(size-5)]
-    for i,elem in enumerate(tab[5:]):
+    min_max = [[float('inf'),float('-inf')] for _ in range(size-5)]
+    for i, elem in enumerate(tab[5:]):
         elem.sort()
         min_max[i][0] = elem[0]
         min_max[i][1] = elem[-1]
-        
     
-
-
     fig, ax = plt.subplots()
-    # fig, ax = plt.subplots(1,2, figsize=(10,5))
-    
     colors = sns.color_palette("Set2")
 
-    what_color=['red', 'yellow', 'blue', 'green']
-    hat=['/','\\','+','o']
-    house_name=["Gryffindor","Hufflepuff","Ravenclaw","Slitherin"]
+    what_color = ['red', 'yellow', 'blue', 'green']
+    house_name = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slitherin"]
     for house in range(len(houses_mean)):
         essai = []
         for i,val in enumerate(houses_mean[house]):
             essai.append((val[0] - min_max[i][0]) / (min_max[i][1]-min_max[i][0]) * 100)
         ax.bar(names[5:], essai, width=0.8, edgecolor='b', color=what_color[house], alpha=0.3)
-        ax.legend()
-
+        ax.plot(names[5:], essai, marker='o', label=house_name[house], color=what_color[house])
+    ax.set_xticklabels(names[5:], rotation=45, ha='right')
+    ax.set_ylabel("Moyenne des maisons (normalisée sur 100)")
+    ax.set_title("Comparaison des moyennes des maisons sur les différentes matières")
+    ax.legend()
     plt.show()

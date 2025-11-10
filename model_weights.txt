@@ -1,0 +1,97 @@
+============================================================
+      POIDS DU MODÈLE RÉGRESSION LOGISTIQUE POUDLARD
+============================================================
+
+Features utilisées:
+   0: Arithmancy
+   1: Astronomy
+   2: Herbology
+   3: Defense Against the Dark Arts
+   4: Divination
+   5: Muggle Studies
+   6: Ancient Runes
+   7: History of Magic
+   8: Transfiguration
+   9: Potions
+  10: Care of Magical Creatures
+  11: Charms
+  12: Flying
+
+POIDS PAR MAISON:
+------------------------------------------------------------
+
+🏠 GRYFFINDOR:
+   Biais:  -4.4091
+   Poids des matières:
+     ➕ Divination               :   1.8449 (📊 Forte)
+     ➖ Transfiguration          :  -1.7296 (📊 Forte)
+     ➖ Herbology                :  -1.6197 (📊 Forte)
+     ➕ Ancient Runes            :   1.3905 (📊 Forte)
+     ➕ Flying                   :   1.1524 (📊 Forte)
+     ➖ History of Magic         :  -1.1113 (📊 Forte)
+     ➖ Muggle Studies           :  -0.8868 (📉 Moyenne)
+     ➖ Potions                  :  -0.7743 (📉 Moyenne)
+     ➕ Care of Magical Creatures:   0.4343 (📋 Faible)
+     ➖ Arithmancy               :  -0.3079 (📋 Faible)
+     ➖ Defense Against the Dark Arts:  -0.0998 (📋 Faible)
+     ➕ Astronomy                :   0.0708 (📋 Faible)
+     ➖ Charms                   :  -0.0618 (📋 Faible)
+
+🏠 RAVENCLAW:
+   Biais:  -3.8521
+   Poids des matières:
+     ➕ Muggle Studies           :   2.4324 (📈 Très forte)
+     ➕ Charms                   :   1.5693 (📊 Forte)
+     ➕ Herbology                :   1.5063 (📊 Forte)
+     ➕ Ancient Runes            :   1.3177 (📊 Forte)
+     ➕ Defense Against the Dark Arts:   1.0325 (📊 Forte)
+     ➖ Astronomy                :  -1.0261 (📊 Forte)
+     ➕ History of Magic         :   0.6013 (📉 Moyenne)
+     ➖ Transfiguration          :  -0.5312 (📉 Moyenne)
+     ➖ Care of Magical Creatures:  -0.4470 (📋 Faible)
+     ➖ Divination               :  -0.4291 (📋 Faible)
+     ➕ Flying                   :   0.3592 (📋 Faible)
+     ➖ Arithmancy               :  -0.2997 (📋 Faible)
+     ➕ Potions                  :   0.0321 (📋 Faible)
+
+🏠 SLYTHERIN:
+   Biais:  -9.2221
+   Poids des matières:
+     ➖ Divination               :  -5.8053 (📈 Très forte)
+     ➕ Potions                  :   3.3497 (📈 Très forte)
+     ➕ Herbology                :   2.5444 (📈 Très forte)
+     ➕ Transfiguration          :   2.4161 (📈 Très forte)
+     ➖ Muggle Studies           :  -2.3010 (📈 Très forte)
+     ➖ Ancient Runes            :  -1.5887 (📊 Forte)
+     ➖ Charms                   :  -1.2326 (📊 Forte)
+     ➖ Astronomy                :  -0.9856 (📉 Moyenne)
+     ➕ Defense Against the Dark Arts:   0.9843 (📉 Moyenne)
+     ➕ Arithmancy               :   0.8912 (📉 Moyenne)
+     ➕ Care of Magical Creatures:   0.5357 (📉 Moyenne)
+     ➕ Flying                   :   0.5148 (📉 Moyenne)
+     ➕ History of Magic         :   0.2313 (📋 Faible)
+
+🏠 HUFFLEPUFF:
+   Biais:  -3.4076
+   Poids des matières:
+     ➖ Ancient Runes            :  -2.0256 (📈 Très forte)
+     ➕ Astronomy                :   1.9779 (📊 Forte)
+     ➖ Defense Against the Dark Arts:  -1.9776 (📊 Forte)
+     ➕ History of Magic         :   1.9412 (📊 Forte)
+     ➕ Divination               :   1.6156 (📊 Forte)
+     ➖ Muggle Studies           :  -1.3545 (📊 Forte)
+     ➕ Herbology                :   1.3366 (📊 Forte)
+     ➖ Flying                   :  -1.0606 (📊 Forte)
+     ➖ Potions                  :  -0.6965 (📉 Moyenne)
+     ➕ Transfiguration          :   0.2642 (📋 Faible)
+     ➕ Care of Magical Creatures:   0.1925 (📋 Faible)
+     ➖ Arithmancy               :  -0.0916 (📋 Faible)
+     ➖ Charms                   :  -0.0287 (📋 Faible)
+
+============================================================
+INTERPRÉTATION:
+➕ Poids positif = Plus cette matière a une note élevée, plus l'étudiant
+   a de chances d'être dans cette maison
+➖ Poids négatif = Plus cette matière a une note élevée, moins l'étudiant
+   a de chances d'être dans cette maison
+============================================================

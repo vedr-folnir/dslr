@@ -81,29 +81,51 @@ def get_data(dataset, index, to):
         values.append(dataset[index][elem])
     return values
 
+def cor(dataset):
+    """
+        fait la correlation entre chaque valeurs et renvoi l'index des 2 plus similaires
+    """
+    max = [0]
+    for i in range(len(dataset)):
+        fam = [float(val) for val in dataset[i][1:]]
+        for j in range(len(dataset[i:])):
+            fim = [float(val) for val in dataset[j][1:]]
+            corco = abs(np.corrcoef(fim,fam)[0,1])
+            if corco > max[0] and i != j:
+                max = [corco, i, j]       
+    
+    val1 = [float(val) for val in dataset[max[1]][1:]]
+    val2 = [float(val) for val in dataset[max[2]][1:]]
+    
+    plt.scatter(val1, val2)
+    plt.title("Valeurs en colonne")
+    plt.xlabel(study[max[1]])
+    plt.ylabel(study[max[2]])
+    plt.grid(True, axis='y')
+    plt.show()
+ 
+    return max
 
 
-data = open_dataset("dslr/datasets/dataset_train.csv")
+
+
+data = open_dataset("datasets/dataset_train.csv")
 # print(data[6][21])
 
 data = correct_err(data, 6)
 # print(data[6])
 
 sorted, names = sort_by_kind(data, 1)
-print(sorted, names)
+# print(sorted, names)
 
-fim = get_data(data, 7, sorted[names.index("Slytherin")])
+study = ["Arithmancy","Astronomy","Herbology","Defense Against the Dark Arts","Divination","Muggle Studies","Ancient Runes","History of Magic","Transfiguration","Potions","Care of Magical Creatures","Charms","Flying"]
+
+fim = get_data(data, 6 + study.index("Astronomy"), sorted[names.index("Slytherin")])
 fim = [float(val) for val in fim]
+
+coef = cor(data[6:])
+print(coef)
 # print(fim)
-
-
-# plt.bar(range(len(fim)), fim)
-
-# plt.title("Valeurs en colonne")
-# plt.xlabel("Index")
-# plt.ylabel("Valeur")
-# plt.grid(True, axis='y')
-# plt.show()
 
 
 
